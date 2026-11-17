@@ -10,10 +10,5 @@ export type ProductImageProps = {
 };
 
 export type ProductInfoProps = {
-  name: string;
-  description: string;
-  price: number;
-  rating: number;
-  stock: number;
-  outOfStock: boolean;
+  product: import("./product").Product;
 };

@@ -13,14 +13,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         category={product.category}
         outOfStock={outOfStock}
       />
-      <ProductInfo
-        name={product.name}
-        description={product.description}
-        price={product.price}
-        rating={product.rating}
-        stock={product.stock}
-        outOfStock={outOfStock}
-      />
+      <ProductInfo product={product} />
     </div>
   );
 }

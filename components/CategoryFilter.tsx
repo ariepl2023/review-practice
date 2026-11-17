@@ -1,5 +1,7 @@
 "use client";
 
+import { cn } from "@/lib/cn";
+
 type CategoryFilterProps = {
   categories: string[];
   selected: string;
@@ -13,11 +15,12 @@ export default function CategoryFilter({ categories, selected, onChange }: Categ
         <button
           key={cat}
           onClick={() => onChange(cat)}
-          className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+          className={cn(
+            "px-4 py-1.5 rounded-full text-sm font-medium transition-colors",
             selected === cat
               ? "bg-gray-900 text-white"
               : "bg-white text-gray-600 border border-gray-200 hover:border-gray-400"
-          }`}
+          )}
         >
           {cat}
         </button>
