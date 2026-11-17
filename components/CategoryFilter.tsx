@@ -1,12 +1,12 @@
 "use client";
 
-type Props = {
+type CategoryFilterProps = {
   categories: string[];
   selected: string;
   onChange: (category: string) => void;
 };
 
-export default function CategoryFilter({ categories, selected, onChange }: Props) {
+export default function CategoryFilter({ categories, selected, onChange }: CategoryFilterProps) {
   return (
     <div className="flex flex-wrap gap-2">
       {categories.map((cat) => (
