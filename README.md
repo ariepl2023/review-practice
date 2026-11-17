@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ShopNext — Code Review Practice Project
 
-## Getting Started
+## What is this?
 
-First, run the development server:
+This project exists for one purpose: **practicing code review**.
+
+Ariel is a developer who wants to get better at reviewing pull requests the way you would at a real job. The idea is simple:
+
+- Claude builds features and opens a **PR to `stage`** (the main branch)
+- Ariel reviews the PR on GitHub — leaves comments, requests changes, approves, asks questions
+- Claude reads the feedback and pushes updates to the same branch
+- Once approved, the PR gets merged into `stage`
+- Then Claude opens the next feature PR, and the cycle repeats
+
+This simulates a real team workflow: feature branch → PR → review → merge.
+
+---
+
+## The Project
+
+An e-commerce store called **ShopNext**, built with:
+
+- **Next.js** (App Router) + **TypeScript**
+- **Tailwind CSS** for styling
+- Mock data (no real backend — the focus is on the frontend code and the review process)
+
+---
+
+## Branch Strategy
+
+| Branch | Role |
+|---|---|
+| `stage` | Main branch — all PRs target this |
+| `feat/*` | Feature branches — one per PR |
+
+There is no separate `main`. `stage` is the source of truth.
+
+---
+
+## Progress
+
+### Done
+- [x] **PR #1** — Product listing page ([#1](https://github.com/ariepl2023/review-practice/pull/1))
+  - Homepage grid with 8 products
+  - `ProductCard` component (image, price, rating, stock badge)
+  - `CategoryFilter` pill buttons
+  - Real-time search by product name
+
+### Up next (planned)
+- [ ] Product detail page (`/products/[id]`)
+- [ ] Shopping cart (context + sidebar or drawer)
+- [ ] Checkout flow
+- [ ] Order confirmation page
+
+---
+
+## How to run locally
 
 ```bash
+cd ~/Desktop/review-practice
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How to continue in a new session
 
-## Learn More
+Tell Claude:
+> "Continue the review-practice project. Check the README and open PRs on GitHub, then pick up from where we left off."
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Claude will read this file, check what's merged into `stage`, see any open/pending PRs, and continue from there.
